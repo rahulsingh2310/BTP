@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Building choropleth (heatmap) of India using react-simple-maps.
 
 ### Screenshot
@@ -49,3 +50,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Blog
 
 https://medium.com/@varunon9/building-choropleth-map-heatmap-of-india-in-javascript-using-react-simple-maps-2e71758fc4df
+=======
+# BTP
+>>>>>>> 40a00a62426cf6c567e1dcf08ec956dd6242b1ba
