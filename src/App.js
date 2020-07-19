@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+import { ComposableMap, Geographies, Geography,   ZoomableGroup } from 'react-simple-maps';
 import { scaleQuantile } from 'd3-scale';
 import ReactTooltip from 'react-tooltip';
 
 import LinearGradient from './LinearGradient.js';
-import './App.css';
 
+import Graph from './graph.js';
+
+import { Container,Row,Col } from 'react-bootstrap';
 /**
 * Courtesy: https://rawgit.com/Anujarya300/bubble_maps/master/data/geography-data/india.topo.json
-* Looking topojson for other countries/world? 
+* Looking topojson for other countries/world?
 * Visit: https://github.com/markmarkoh/datamaps
 */
 const INDIA_TOPO_JSON = require('./india.topo.json');
@@ -124,17 +126,40 @@ function App() {
     setData(getHeatMapData());
   };
 
+  const [position, setPosition] = useState({ coordinates: [78.9629, 22.5937], zoom: 1 });
+
+  function handleZoomIn() {
+    if (position.zoom >= 4) return;
+    setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+  }
+
+  function handleZoomOut() {
+    if (position.zoom <= 1) return;
+    setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+  }
+
+  function handleMoveEnd(position) {
+    setPosition(position);
+  }
+
+
   return (
-    <div className="full-width-height container">
-      <h1 className="no-margin center">States and UTs</h1>
+    <Container className="w-100 contain">
+    <Row>
+    <Col lg="9">
+      <h1 className="no-margin center">POLLUTION MEASUREMENT </h1>
       <ReactTooltip>{tooltipContent}</ReactTooltip>
         <ComposableMap
           projectionConfig={PROJECTION_CONFIG}
           projection="geoMercator"
-          width={600}
+          width={250}
           height={220}
           data-tip=""
         >
+        <ZoomableGroup
+        zoom={position.zoom}
+          center={position.coordinates}
+          onMoveEnd={handleMoveEnd}>
           <Geographies geography={INDIA_TOPO_JSON}>
             {({ geographies }) =>
               geographies.map(geo => {
@@ -153,12 +178,54 @@ function App() {
               })
             }
           </Geographies>
+          </ZoomableGroup>
         </ComposableMap>
         <LinearGradient data={gradientData} />
+
+
+        <div className="controls">
+          <button onClick={handleZoomIn}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="3"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+          </button>
+          <button onClick={handleZoomOut}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="3"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+          </button>
+        </div>
+
         <div className="center">
           <button className="mt16" onClick={onChangeButtonClick}>Change</button>
         </div>
-    </div>
+
+
+
+        </Col>
+        <Col lg="3">
+
+            <Graph/>
+
+        </Col>
+        </Row>
+        </Container>
+
   );
 }
 
