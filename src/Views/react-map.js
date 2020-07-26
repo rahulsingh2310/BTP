@@ -140,15 +140,15 @@ function App() {
 
 
   return (
-    <Container className="w-100 contain">
+    <div className="w-100 contain">
     <Row>
     <Col lg="9">
-      <h1 className="no-margin center">POLLUTION MEASUREMENT </h1>
+
       <ReactTooltip>{tooltipContent}</ReactTooltip>
         <ComposableMap
           projectionConfig={PROJECTION_CONFIG}
           projection="geoMercator"
-          width={250}
+          width={450}
           height={220}
           data-tip=""
         >
@@ -220,7 +220,7 @@ function App() {
 
         </Col>
         </Row>
-        </Container>
+        </div>
 
   );
 }

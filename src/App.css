@@ -1,13 +1,15 @@
 html, body {
 
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: rgba(0,0,0,.87);
-  background-color: rgb(255,250,205);
+  /*color: rgba(0,0,0,.87);
+  background-color: rgb(255,250,205);*/
 }
 
 .contain{
   margin: 0;
   padding:0;
+  margin-right:-50x;
+
 }
 
 .no-margin {
@@ -21,3 +23,41 @@ html, body {
 .mt16 {
   margin-top: 16px;
 }
+
+@media (min-width: 992px)
+.container, .container-lg, .container-md, .container-sm {
+    max-width: 980px;
+}
+
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.controls {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: 1.25rem 0;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.controls > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+  background: #ff5533;
+  color: #fff;
+  border-radius: 100%;
+  border: 0;
+}
+.controls > button:first-child {
+  margin-right: 0.25rem;
+}
+

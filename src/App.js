@@ -10,6 +10,7 @@ import {
 import './App.css';
 import ReactMap from './Views/react-map';
 import GoogleMap from './Views/react-google-maps';
+import NavbarPage from './Views/navbar';
 
 
 /* import PatientDB from './components/patientdb';*/
@@ -18,7 +19,7 @@ const history = require('history').createBrowserHistory;
 
 class App extends Component{
 
-   
+
   render () {
 
     const pages = [
@@ -35,7 +36,7 @@ class App extends Component{
         animationDelayForNavbar: 0.2,
       },
     ];
-  
+
 
   return (
     <div className="App">
@@ -43,7 +44,7 @@ class App extends Component{
         <Route
           render={({location}) => (
             <div className="Almighty-Router">
-              {/* <Navbar pages={pages} /> */}
+               <NavbarPage />
               <Switch location={location}>
                 {pages.map((page, i) => {
                   return (
@@ -53,10 +54,10 @@ class App extends Component{
                       component={page.view}
                       key={i}
                     />
-                  
+
                   );
                 })}
-              
+
                 <Redirect to="/" />
               </Switch>
             </div>
