@@ -3,9 +3,15 @@ import { ComposableMap, Geographies, Geography,   ZoomableGroup } from 'react-si
 import { scaleQuantile } from 'd3-scale';
 import ReactTooltip from 'react-tooltip';
 
+
+import ToggleButtonGroupControlled from '../button.js';
+
+
 import LinearGradient from '../LinearGradient.js';
 
 import Graph from '../graph.js';
+
+import ChartsPage from '../scatter.js';
 
 import { Container,Row,Col } from 'react-bootstrap';
 
@@ -142,13 +148,13 @@ function App() {
   return (
     <div className="w-100 contain">
     <Row>
-    <Col lg="9">
+    <Col lg="8">
 
       <ReactTooltip>{tooltipContent}</ReactTooltip>
-        <ComposableMap
+        <ComposableMap className="mr-5"
           projectionConfig={PROJECTION_CONFIG}
           projection="geoMercator"
-          width={450}
+          width={350}
           height={220}
           data-tip=""
         >
@@ -214,9 +220,10 @@ function App() {
 
 
         </Col>
-        <Col lg="3">
+        <Col lg="4">
 
             <Graph/>
+<ChartsPage />
 
         </Col>
         </Row>

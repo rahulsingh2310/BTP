@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Container,Row,Col } from 'react-bootstrap';
 
-const data = require('../test.json');
+const data = require('../test02.json');
 
 
 export class MapContainer extends React.Component {
@@ -82,7 +82,7 @@ export class MapContainer extends React.Component {
                 style={{height: '100%', width: '90%', position: 'relative', marginLeft: '5%'}}
                 className='map'
                 google={this.props.google}
-                zoom={4}
+                zoom={5}
                 onClick={this.onMapClicked}
                 initialCenter={{
                     lat: 22.5937,

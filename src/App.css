@@ -1,9 +1,21 @@
 html, body {
 
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  /*color: rgba(0,0,0,.87);
-  background-color: rgb(255,250,205);*/
+  /*color: rgba(0,0,0,.87);*/
+  background-color: rgb(0,0,0);
+
 }
+.bar{
+color: rgb(255,255,255);
+}
+body{
+   
+background: url("sentinel3.jpg");
+   
+background-repeat: no-repeat;
+ background-size: cover;
+/*background-size: 1058.66px 525.45px;
+*/}
 
 .contain{
   margin: 0;
