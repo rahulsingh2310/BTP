@@ -11,7 +11,7 @@ class ChartsPage extends React.Component {
       datasets: [
         {
           borderColor: 'rgba(255,255,255)',
-          backgroundColor: 'rgba(255,255,255)',
+          backgroundColor: 'rgba(0,0,0)',
           label: '',
           data: [
             {
@@ -30,7 +30,7 @@ class ChartsPage extends React.Component {
               x: 10,
               y: 0.4
             },
-         
+
             {
               x: 15,
               y: 0.2597
@@ -60,7 +60,7 @@ class ChartsPage extends React.Component {
       ]
     },
     optionsScatter: {
-     
+
       scales: {
         xAxes: [
           {
@@ -76,7 +76,7 @@ class ChartsPage extends React.Component {
                 return '';
               }
             },
-           
+
           }
         ],
         yAxes: [
@@ -87,7 +87,7 @@ class ChartsPage extends React.Component {
                 return tick.toString() + 'mol/m2';
               }
             },
-         
+
           }
         ]
       }
@@ -103,7 +103,7 @@ class ChartsPage extends React.Component {
           options={this.state.optionsScatter}
         />
 	</Col>
-      
+
     );
   }
 }

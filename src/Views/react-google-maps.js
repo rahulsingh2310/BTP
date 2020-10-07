@@ -7,7 +7,12 @@ const data = require('../test02.json');
 
 
 export class MapContainer extends React.Component {
-
+ constructor(props) {
+    super(props);
+	 this.state = {
+    		seen: false
+  	 };
+   }
 
     fetchPlaces(mapProps, map) {
         const {google} = mapProps;
@@ -18,29 +23,35 @@ export class MapContainer extends React.Component {
         // ...
         console.log(clickEvent.latLng.lat())
         console.log(clickEvent.latLng.lng())
+//	window.alert("Selected Latitude :" + clickEvent.latLng.lat() +  "\n" + "Selected Longitude : "  + clickEvent.latLng.lng() +  "\n\n" +   "Results \n" +   "Latitude : 17.228323\n" +  "Longitude : 78.76791\n" +  "Co2 Value : 0.041603442 mol/m2\n")
+
+
+
+
+
       }
 
 
 
 
 
-		
 
 
 
-	
+
+
     render() {
 	let data1 = [];
 		for (var i = 0; i < data.length; i++){
 			var obj = data[i];
 			//console.log("Name: " + obj.latitude + ", " + obj.longitude);
 			data1 = data1.concat({ lat: obj.latitude, lng: obj.longitude, weight:obj.co2 });
-		
+
 		}
 
 
 
-		
+
 		console.log(data1)
 
 
@@ -77,9 +88,9 @@ export class MapContainer extends React.Component {
 
 
         return (
-            <div>
+            <div id="google">
             <Map
-                style={{height: '100%', width: '90%', position: 'relative', marginLeft: '5%'}}
+                style={{height: '100%', width: '100%', position: 'relative', marginLeft: '0%'}}
                 className='map'
                 google={this.props.google}
                 zoom={5}
@@ -99,7 +110,9 @@ export class MapContainer extends React.Component {
                 />
 
                 </Map>
-		
+
+			{this.state.seen ? <h1>HI</h1>  : null}
+
 
             </div>
         )

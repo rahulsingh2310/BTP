@@ -148,7 +148,9 @@ function App() {
   return (
     <div className="w-100 contain">
     <Row>
-    <Col lg="8">
+    <Col lg="1">
+    </Col>
+    <Col lg="10" >
 
       <ReactTooltip>{tooltipContent}</ReactTooltip>
         <ComposableMap className="mr-5"
@@ -218,12 +220,6 @@ function App() {
         </div>
 
 
-
-        </Col>
-        <Col lg="4">
-
-            <Graph/>
-<ChartsPage />
 
         </Col>
         </Row>

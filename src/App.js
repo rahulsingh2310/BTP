@@ -11,6 +11,9 @@ import './App.css';
 import ReactMap from './Views/react-map';
 import GoogleMap from './Views/react-google-maps';
 import NavbarPage from './Views/navbar';
+import Home from './Views/home';
+import Charts from './Views/charts';
+import Footer from './Views/home/footer.js';
 
 
 /* import PatientDB from './components/patientdb';*/
@@ -24,7 +27,7 @@ class App extends Component{
 
     const pages = [
       {
-        pageLink: '/',
+        pageLink: '/state-map',
         view: ReactMap,
         displayName: '',
         animationDelayForNavbar: 0.2,
@@ -35,6 +38,19 @@ class App extends Component{
         displayName: '',
         animationDelayForNavbar: 0.2,
       },
+      {
+        pageLink: '/',
+        view: Home,
+        displayName: '',
+        animationDelayForNavbar: 0.2,
+      },
+      {
+        pageLink: '/charts',
+        view: Charts,
+        displayName: '',
+        animationDelayForNavbar: 0.2,
+      },
+
     ];
 
 
@@ -60,6 +76,8 @@ class App extends Component{
 
                 <Redirect to="/" />
               </Switch>
+
+              <Footer />
             </div>
           )}
         />

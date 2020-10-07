@@ -57,7 +57,7 @@ export default class NavbarPage extends React.Component {
         <NavbarToggler onClick={this.toggleNavbar} />
 
         <Collapse open={this.state.collapseOpen} navbar>
-         
+
           <Nav navbar className="ml-auto">
             <InputGroup size="sm" seamless>
               <InputGroupAddon type="prepend">
